@@ -13,17 +13,16 @@ function onSuccess(imageURI) {
 }
 
 function onFail(message) {
-    alert('Failed because: ' + message);
+    alert('Ocorreu um Erro: ' + message);
 }
 });
 
 $(document).on("click", "#qrcode", function(){
      cordova.plugins.barcodeScanner.scan(
       function (result) {
-          alert("barcode scaneado:\n" +
-                "Resultado: " + result.text + "\n" +
-                "Formato: " + result.format + "\n" +
-                "Cancelado: " + result.cancelled);
+
+                var qrcodzin = $("#fim");
+                qrcodzin.text(result.text);
       },
       function (error) {
           alert("fALHA AO SCANEAR: " + error);
